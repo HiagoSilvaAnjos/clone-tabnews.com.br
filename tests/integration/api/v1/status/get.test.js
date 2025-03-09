@@ -37,9 +37,8 @@ test("GET to /api/v1/status should return postgres version to database", async (
   const response = await fetch("http://localhost:3000/api/v1/status");
 
   const responseBody = await response.json();
-  console.log(responseBody);
   expect(responseBody.dependeces.database.version).toBeDefined();
 
-  const activeConnections = responseBody.dependeces.database.version;
-  expect(activeConnections).toBe("16.0");
+  const versionDatabase = responseBody.dependeces.database.version;
+  expect(versionDatabase).toBe("16.0");
 });
